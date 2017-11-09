@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <link href="../css/bootstrap.min.css" type="text/css" rel="stylesheet">
+    <style>
+        a{
+            color : #afafaf;
+        }
+        a:hover{
+            color : #3f3f3f;
+        }
+    </style>
+</head>
+<body>
+<div id="slider-1" style="width: 90%;margin-right: auto; margin-left: auto; margin-bottom: 20px">
+    <a class="btn" id="left-1"><i class="glyphicon glyphicon-arrow-left"></i></a>
+    <a class="btn" id="right-1"><i class="glyphicon glyphicon-arrow-right"></i></a>
+    <a class="btn" id="play-1"><i class="glyphicon glyphicon-play-circle"></i></a>
+</div>
+<div id="slider-2" style="width: 90%;margin-right: auto; margin-left: auto; margin-bottom: 20px">
+</div>
+<div id="slider-3" style="width: 90%;margin-right: auto; margin-left: auto; margin-bottom: 20px">
+    <a class="btn" id="left-3"><i class="glyphicon glyphicon-arrow-left"></i></a>
+    <a class="btn" id="right-3"><i class="glyphicon glyphicon-arrow-right"></i></a>
+</div>
+<script type="text/javascript" src="../lib/jquery-1.11.1.min.js">
+</script>
+<script type="text/javascript" src="../jquery.xslider.js">
+</script>
+<script type="text/javascript">
+    $(document).ready(function () {
+        var slider_1 = $('#slider-1').slider(
+                {
+                    showedObject: ['../image/1.jpg', '../image/2.jpg', '../image/3.jpg', '../image/4.jpg'],
+                    width: 600,
+                    height: 400,//整个控件div层的高度
+                    objectWidth: 600,//每个显示对象的宽度
+                    showNum: 1,
+                    mouseoverHandler: function (index) {//鼠标落在显示对象时的方法
+                        $(this).css("margin", "-2px");
+                        //slider_1.pause();
+                    },
+                    mouseoutHandler: function (index) {//鼠标离开显示对象时的方法
+                        $(this).css("margin", "0px");
+                        //slider_1.cycle(1000);
+                    },
+                    clickHandler: function (index) {
+                        alert(index);
+                    }
+                }
+        );
+
+        $('#play-1').click(function(){
+            var i = $(this).find("i");
+            if(i.hasClass("glyphicon-play-circle")){
+               i.removeClass("glyphicon-play-circle")
+                        .addClass("glyphicon-pause");
+                slider_1.cycle(1000);
+                $('#left-1').attr("disabled", "disabled");
+                $('#right-1').attr("disabled", "disabled");
+            } else {
+                i.removeClass("glyphicon-pause")
+                        .addClass("glyphicon-play-circle");
+                slider_1.pause();
+                $('#left-1').removeAttr("disabled");
+                $('#right-1').removeAttr("disabled");
+            }
+        });
+        $("#right-1").click(function () {
+            slider_1.rightwards()
+        });
+
+        $("#left-1").click(function () {
+            slider_1.leftwards();
+        });
+
+
+        var slider_2 = $('#slider-2').slider(
+                {
+                    showedObject: ['../image/1.jpg', '../image/2.jpg', '../image/3.jpg', '../image/4.jpg'],
+                    width: 900,
+                    height: 300,//整个控件div层的高度
+                    objectWidth: 450,//每个显示对象的宽度
+                    showNum: 2,
+                    mouseoverHandler: function (index) {//鼠标落在显示对象时的方法
+                        $(this).css("margin", "-2px");
+                        slider_2.pause();
+                    },
+                    mouseoutHandler: function (index) {//鼠标离开显示对象时的方法
+                        $(this).css("margin", "0px");
+                        slider_2.cycle(1000);
+                    },
+                    clickHandler: function (index) {
+                        alert(index);
+                    }
+                }
+        );
+        slider_2.cycle(1000);
+
+
+        var slider_3 = $('#slider-3').slider(
+                {
+                    showedObject: ['../image/1.jpg', '../image/2.jpg', '../image/3.jpg', '../image/4.jpg'],
+                    width: 1200,
+                    height: 300,//整个控件div层的高度
+                    objectWidth: 400,//每个显示对象的宽度
+                    showNum: 3,
+                    mouseoverHandler: function (index) {//鼠标落在显示对象时的方法
+                        $(this).css("margin", "-2px");
+                    },
+                    mouseoutHandler: function (index) {//鼠标离开显示对象时的方法
+                        $(this).css("margin", "0px");
+                    },
+                    clickHandler: function (index) {
+                        alert(index);
+                    }
+                }
+        );
+        slider_3.on("onSlide", function () {
+            console.log("start slide");
+        });
+
+        slider_3.on("onSlide", function () {
+            console.log("end slide");
+        });
+
+        $("#right-3").click(function () {
+            slider_3.rightwards()
+        });
+
+        $("#left-3").click(function () {
+            slider_3.leftwards();
+        });
+
+    });
+</script>
+</body>
+</html>
