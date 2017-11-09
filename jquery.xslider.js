@@ -28,7 +28,6 @@
         }
         var num = options.showedObject.length;//图片总数
         var status;//当前滑动状态
-        //console.log("num: " + num);
 
         var thumbnail = [];
         var movable = [];
