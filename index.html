@@ -9,6 +9,7 @@
     <link href="css/bootstrap.min.css" type="text/css" rel="stylesheet">
     <link href="css/bootstrap-responsive.css" type="text/css" rel="stylesheet">
     <link href="css/docs.css" type="text/css" rel="stylesheet">
+    <link href="css/default.css" type="text/css" rel="stylesheet">
     <style>
         body {
             background-color: #efefef;
@@ -82,47 +83,81 @@
             <!-- Overview
             ================================================== -->
             <section id="tooltips" class="bs-docs-section">
-                <h1 class="page-header"><a class="anchorjs-link " href="#tooltips" aria-label="Anchor link for: tooltips" data-anchorjs-icon="" style="font-family: anchorjs-icons; font-style: normal; font-variant: normal; font-weight: normal; line-height: inherit; position: absolute; margin-left: -1em; padding-right: 0.5em;"></a>Tooltips <small>tooltip.js</small></h1>
-                <p>Inspired by the excellent jQuery.tipsy plugin written by Jason Frame; Tooltips are an updated version, which don't rely on images, use CSS3 for animations, and data-attributes for local title storage.</p>
+                <h1 class="page-header"><a class="anchorjs-link " href="#tooltips"
+                                           aria-label="Anchor link for: tooltips" data-anchorjs-icon=""
+                                           style="font-family: anchorjs-icons; font-style: normal; font-variant: normal; font-weight: normal; line-height: inherit; position: absolute; margin-left: -1em; padding-right: 0.5em;"></a>Tooltips
+                    <small>tooltip.js</small>
+                </h1>
+                <p>Inspired by the excellent jQuery.tipsy plugin written by Jason Frame; Tooltips are an updated
+                    version, which don't rely on images, use CSS3 for animations, and data-attributes for local title
+                    storage.</p>
+
                 <p>Tooltips with zero-length titles are never displayed.</p>
 
-                <h4 id="tooltip-destroy"><a class="anchorjs-link " href="#tooltip-destroy" aria-label="Anchor link for: tooltip destroy" data-anchorjs-icon="" style="font-family: anchorjs-icons; font-style: normal; font-variant: normal; font-weight: normal; line-height: inherit; position: absolute; margin-left: -1em; padding-right: 0.5em;"></a><code>.tooltip('destroy')</code></h4>
-                <p>Hides and destroys an element's tooltip. Tooltips that use delegation (which are created using <a href="#tooltips-options">the <code>selector</code> option</a>) cannot be individually destroyed on descendant trigger elements.</p>
-                <div class="zero-clipboard"><span class="btn-clipboard">Copy</span></div><figure class="highlight"><pre><code class="language-js" data-lang="js"><span class="nx">$</span><span class="p">(</span><span class="s1">'#element'</span><span class="p">).</span><span class="nx">tooltip</span><span class="p">(</span><span class="s1">'destroy'</span><span class="p">)</span></code></pre></figure>
+                <h4 id="tooltip-destroy"><a class="anchorjs-link " href="#tooltip-destroy"
+                                            aria-label="Anchor link for: tooltip destroy" data-anchorjs-icon=""
+                                            style="font-family: anchorjs-icons; font-style: normal; font-variant: normal; font-weight: normal; line-height: inherit; position: absolute; margin-left: -1em; padding-right: 0.5em;"></a><code>.tooltip('destroy')</code>
+                </h4>
 
-                <h3 id="tooltips-events"><a class="anchorjs-link " href="#tooltips-events" aria-label="Anchor link for: tooltips events" data-anchorjs-icon="" style="font-family: anchorjs-icons; font-style: normal; font-variant: normal; font-weight: normal; line-height: inherit; position: absolute; margin-left: -1em; padding-right: 0.5em;"></a>Events</h3>
-                        <div class="table-responsive">
-                            <table class="table table-bordered table-striped bs-events-table">
-                                <thead>
-                                <tr>
-                                    <th>Event Type</th>
-                                    <th>Description</th>
-                                </tr>
-                                </thead>
-                                <tbody>
-                                <tr>
-                                    <td>show.bs.tooltip</td>
-                                    <td>This event fires immediately when the <code>show</code> instance method is called.</td>
-                                </tr>
-                                <tr>
-                                    <td>shown.bs.tooltip</td>
-                                    <td>This event is fired when the tooltip has been made visible to the user (will wait for CSS transitions to complete).</td>
-                                </tr>
-                                <tr>
-                                    <td>hide.bs.tooltip</td>
-                                    <td>This event is fired immediately when the <code>hide</code> instance method has been called.</td>
-                                </tr>
-                                <tr>
-                                    <td>hidden.bs.tooltip</td>
-                                    <td>This event is fired when the tooltip has finished being hidden from the user (will wait for CSS transitions to complete).</td>
-                                </tr>
-                                <tr>
-                                    <td>inserted.bs.tooltip</td>
-                                    <td>This event is fired after the <code>show.bs.tooltip</code> event when the tooltip template has been added to the DOM.</td>
-                                </tr>
-                                </tbody>
+                <p>Hides and destroys an element's tooltip. Tooltips that use delegation (which are created using <a
+                        href="#tooltips-options">the <code>selector</code> option</a>) cannot be individually destroyed
+                    on descendant trigger elements.</p>
+
+                <div class="zero-clipboard"><span class="btn-clipboard">Copy</span></div>
+                <figure>
+                    <pre><code class="javascript" data-lang="js">
+$('Document').ready(function(){
+
+});
+                    </code></pre>
+                </figure>
+
+                <h3 id="tooltips-events"><a class="anchorjs-link " href="#tooltips-events"
+                                            aria-label="Anchor link for: tooltips events" data-anchorjs-icon=""
+                                            style="font-family: anchorjs-icons; font-style: normal; font-variant: normal; font-weight: normal; line-height: inherit; position: absolute; margin-left: -1em; padding-right: 0.5em;"></a>Events
+                </h3>
+
+                <div class="table-responsive">
+                    <table class="table table-bordered table-striped bs-events-table">
+                        <thead>
+                        <tr>
+                            <th>Event Type</th>
+                            <th>Description</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <tr>
+                            <td>show.bs.tooltip</td>
+                            <td>This event fires immediately when the <code>show</code> instance method is called.</td>
+                        </tr>
+                        <tr>
+                            <td>shown.bs.tooltip</td>
+                            <td>This event is fired when the tooltip has been made visible to the user (will wait for
+                                CSS transitions to complete).
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>hide.bs.tooltip</td>
+                            <td>This event is fired immediately when the <code>hide</code> instance method has been
+                                called.
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>hidden.bs.tooltip</td>
+                            <td>This event is fired when the tooltip has finished being hidden from the user (will wait
+                                for CSS transitions to complete).
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>inserted.bs.tooltip</td>
+                            <td>This event is fired after the <code>show.bs.tooltip</code> event when the tooltip
+                                template has been added to the DOM.
+                            </td>
+                        </tr>
+                        </tbody>
                     </table>
-                </div><!-- /.table-responsive -->
+                </div>
+                <!-- /.table-responsive -->
             </section>
 
 
@@ -247,38 +282,41 @@
 </script>
 <script type="text/javascript" src="lib/bootstrap.min.js">
 </script>
+<script type="text/javascript" src="lib/highlight.pack.js">
+</script>
+<script type="text/javascript" src="lib/ZeroClipboard.js">
+</script>
+<script type="text/javascript" src="js/docs.js">
+</script>
 <script type="text/javascript" src="jquery.xslider.js">
 </script>
 <script type="text/javascript">
     $(document).ready(function () {
+
         $('body').scrollspy().on('activate.bs.scrollspy', function () {
 
         });
 
-        if($(document).scrollTop() > 250){
+        if ($(document).scrollTop() > 250) {
             $('.bs-docs-sidebar').css({
-                "position" : "fixed",
-                "top" : "76px"
+                "position": "fixed",
+                "top": "60px"
             });
         }
 
-        $(document).scroll(function(){
-            if($(document).scrollTop() > 250){
+        $(document).scroll(function () {
+            if ($(document).scrollTop() > 250) {
                 $('.bs-docs-sidebar').css({
-                    "position" : "fixed",
-                    "top" : "76px"
+                    "position": "fixed",
+                    "top": "60px"
                 });
             } else {
                 $('.bs-docs-sidebar').css({
-                    "position" : "",
-                    "top" : "0px"
+                    "position": "",
+                    "top": "0px"
                 });
             }
         });
-
-
-
-
 
 
         var slider_1 = $('#slider-1').slider(
