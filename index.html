@@ -51,7 +51,7 @@
 </div>
 
 
-<a href="https://github.com/smalot/bootstrap-datetimepicker"><img
+<a href="https://github.com/xreztento/xslider"><img
         style="position: absolute; top: 0; right: 0; border: 0; z-index: 2000" src="img/forkme_right_red_aa0000.png"
         alt="Fork me on GitHub"></a>
 
@@ -62,14 +62,17 @@
                 <ul class="nav bs-docs-sidenav">
 
                     <li class="">
-                        <a href="#tooltips">概览</a>
+                        <a href="#demo_1">基本创建</a>
                     </li>
-                    <li class=""><a href="#demo_2">过渡效果</a></li>
+                    <li class="">
+                        <a href="#demo_2">自动播放</a>
+                    </li>
+                    <li class="">
+                        <a href="#demo_3">手动播放</a>
+                    </li>
                     <li>
-                        <a href="#demo_3">事件</a>
+                        <a href="#event">事件</a>
                     </li>
-
-
                 </ul>
                 <a class="back-to-top" href="#top">
                     返回顶部
@@ -82,35 +85,50 @@
         <div class="col-lg-10">
             <!-- Overview
             ================================================== -->
-            <section id="tooltips" class="bs-docs-section">
-                <h1 class="page-header"><a class="anchorjs-link " href="#tooltips"
-                                           aria-label="Anchor link for: tooltips" data-anchorjs-icon=""
-                                           style="font-family: anchorjs-icons; font-style: normal; font-variant: normal; font-weight: normal; line-height: inherit; position: absolute; margin-left: -1em; padding-right: 0.5em;"></a>Tooltips
-                    <small>tooltip.js</small>
+            <section id="demo_1" class="bs-docs-section">
+                <h1 class="page-header">Example
+                    <small>基本创建</small>
                 </h1>
-                <p>Inspired by the excellent jQuery.tipsy plugin written by Jason Frame; Tooltips are an updated
-                    version, which don't rely on images, use CSS3 for animations, and data-attributes for local title
-                    storage.</p>
 
-                <p>Tooltips with zero-length titles are never displayed.</p>
+                <p>一个div（JQuery对象）通过以下方法可以创建成为slider对象，该对象实现一个图片滑动功能：</p>
+                <h4><code>.slider(options)</code></h4>
 
-                <h4 id="tooltip-destroy"><a class="anchorjs-link " href="#tooltip-destroy"
-                                            aria-label="Anchor link for: tooltip destroy" data-anchorjs-icon=""
-                                            style="font-family: anchorjs-icons; font-style: normal; font-variant: normal; font-weight: normal; line-height: inherit; position: absolute; margin-left: -1em; padding-right: 0.5em;"></a><code>.tooltip('destroy')</code>
-                </h4>
 
-                <p>Hides and destroys an element's tooltip. Tooltips that use delegation (which are created using <a
-                        href="#tooltips-options">the <code>selector</code> option</a>) cannot be individually destroyed
-                    on descendant trigger elements.</p>
+
+                <p>基础创建代码如下：</p>
 
                 <div class="zero-clipboard"><span class="btn-clipboard">Copy</span></div>
                 <figure>
                     <pre><code class="javascript" data-lang="js">
-$('Document').ready(function(){
-
+var slider_1 = $('#slider-1').slider({
+    showedObject: ['image/1.jpg', 'image/2.jpg', 'image/3.jpg', 'image/4.jpg'],
+    width: 600,
+    height: 400,
+    objectWidth: 600,
+    showNum: 1,
+    mouseoverHandler: function (index) {
+        $(this).css("margin", "-2px");
+    },
+    mouseoutHandler: function (index) {
+        $(this).css("margin", "0px");
+    },
+    clickHandler: function (index) {
+        alert(index);
+    }
 });
                     </code></pre>
                 </figure>
+
+                <div class="bs-docs-example">
+                    <p>效果如下:</p>
+
+                    <div id="slider-1"
+                         style="width: 90%;margin-right: auto; margin-left: auto; margin-bottom: 20px">
+                        <a class="btn" id="left-1"><i class="glyphicon glyphicon-arrow-left"></i></a>
+                        <a class="btn" id="right-1"><i class="glyphicon glyphicon-arrow-right"></i></a>
+                        <a class="btn" id="play-1"><i class="glyphicon glyphicon-play-circle"></i></a>
+                    </div>
+                </div>
 
                 <h3 id="tooltips-events"><a class="anchorjs-link " href="#tooltips-events"
                                             aria-label="Anchor link for: tooltips events" data-anchorjs-icon=""
@@ -161,22 +179,13 @@ $('Document').ready(function(){
             </section>
 
 
-            <section id="demo_1">
+            <section id="demo_2">
                 <div class="page-header">
                     <h2>手动播放</h2>
                 </div>
 
                 <div>
-                    <div class="bs-docs-example">
-                        <p>One of the simpliest implementation is the component.</p>
 
-                        <div id="slider-1"
-                             style="width: 90%;margin-right: auto; margin-left: auto; margin-bottom: 20px">
-                            <a class="btn" id="left-1"><i class="glyphicon glyphicon-arrow-left"></i></a>
-                            <a class="btn" id="right-1"><i class="glyphicon glyphicon-arrow-right"></i></a>
-                            <a class="btn" id="play-1"><i class="glyphicon glyphicon-play-circle"></i></a>
-                        </div>
-                    </div>
                     <pre class="prettyprint linenums prettyprinted" style=""><ol class="linenums">
                         <li class="L0"><span class="tag">&lt;input</span><span class="pln"> </span><span class="atn">size</span><span
                                 class="pun">=</span><span class="atv">"16"</span><span class="pln"> </span><span
@@ -201,7 +210,7 @@ $('Document').ready(function(){
             </section>
 
 
-            <section id="demo_2">
+            <section id="demo_3">
                 <div class="page-header">
                     <h2>手动播放</h2>
                 </div>
@@ -237,7 +246,7 @@ $('Document').ready(function(){
                 </div>
             </section>
 
-            <section id="demo_3">
+            <section id="event">
                 <div class="page-header">
                     <h2>手动播放</h2>
                 </div>
@@ -292,33 +301,6 @@ $('Document').ready(function(){
 </script>
 <script type="text/javascript">
     $(document).ready(function () {
-
-        $('body').scrollspy().on('activate.bs.scrollspy', function () {
-
-        });
-
-        if ($(document).scrollTop() > 250) {
-            $('.bs-docs-sidebar').css({
-                "position": "fixed",
-                "top": "60px"
-            });
-        }
-
-        $(document).scroll(function () {
-            if ($(document).scrollTop() > 250) {
-                $('.bs-docs-sidebar').css({
-                    "position": "fixed",
-                    "top": "60px"
-                });
-            } else {
-                $('.bs-docs-sidebar').css({
-                    "position": "",
-                    "top": "0px"
-                });
-            }
-        });
-
-
         var slider_1 = $('#slider-1').slider(
                 {
                     showedObject: ['image/1.jpg', 'image/2.jpg', 'image/3.jpg', 'image/4.jpg'],
